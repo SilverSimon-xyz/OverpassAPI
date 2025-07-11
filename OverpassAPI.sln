@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36301.6 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OverpassAPI", "OverpassAPI\OverpassAPI.csproj", "{01452ACA-D9E8-496B-B849-2D3E1F341F88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Overpass.Modelli", "Overpass.Modelli\Overpass.Modelli.csproj", "{036AB0FA-1385-489F-97A5-092293881565}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{01452ACA-D9E8-496B-B849-2D3E1F341F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01452ACA-D9E8-496B-B849-2D3E1F341F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01452ACA-D9E8-496B-B849-2D3E1F341F88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{036AB0FA-1385-489F-97A5-092293881565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{036AB0FA-1385-489F-97A5-092293881565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{036AB0FA-1385-489F-97A5-092293881565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{036AB0FA-1385-489F-97A5-092293881565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
