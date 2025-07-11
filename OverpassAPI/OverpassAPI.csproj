@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\Overpass.Modelli\Overpass.Modelli.csproj" />
   </ItemGroup>
 
 </Project>
