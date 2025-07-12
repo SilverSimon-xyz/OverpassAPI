@@ -1,0 +1,47 @@
+﻿@using OverpassAPI.ViewModels
+@model NodiOverpassElencoNodiViewModel
+
+@{
+	Layout = null;
+}
+<html>
+<head>
+	<title>Elenco Nodi Ancona</title>
+</head>
+
+<body>
+	<h1>Pagina di Elenco Punti Interesse Ancona</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Tipo</th>
+				<th>Id</th>
+				<th>Lat, Lon</th>
+				<th>Nome</th>
+				<th>Servizio</th>
+				<th>Numero di Telefono</th>
+				<th>Sito Web</th>
+				<th>Orari di Apertura</th>
+				<th>Accessibilità</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var nodo in Model.ElencoNodi.Where(n => n.tags != null))
+			{
+				<tr>
+					<td>@nodo.type</td>
+					<td>@nodo.id</td>
+					<td>@nodo.lat , @nodo.lon</td>
+					<td>@nodo.tags.name</td>
+					<td>@nodo.tags.amenity</td>
+					<td>@nodo.tags.phone</td>
+					<td>@nodo.tags.website</td>
+					<td>@nodo.tags.opening_hours</td>
+					<td>@nodo.tags.wheelchair</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</body>
+</html>
+

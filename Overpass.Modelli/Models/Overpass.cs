@@ -19,14 +19,10 @@ namespace Overpass.Modelli.Models
     {
         public string name { get; set; }
         public string amenity { get; set; }
-        public string addrcity { get; set; }
-        public string addrstreet { get; set; }
         public string opening_hours { get; set; }
         public string phone { get; set; }
         public string website { get; set; }
         public string wheelchair { get; set; }
-        public string addrpostcode { get; set; }
-        public string _operator { get; set; }
 
     }
   

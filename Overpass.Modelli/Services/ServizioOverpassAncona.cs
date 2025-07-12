@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Overpass.Modelli.Models;
 
@@ -32,9 +33,6 @@ namespace Overpass.Modelli.Services
             var request = "data=" + Uri.EscapeDataString(query);
             var contents = new StringContent(request, Encoding.UTF8, "application/x-www-form-urlencoded");
 
-            //httpClient.DefaultRequestHeaders.Accept.Clear();
-            //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             var response = await httpClient.PostAsync(BaseUri, contents);
 
             var json = await response.Content.ReadAsStringAsync();
@@ -51,5 +49,6 @@ namespace Overpass.Modelli.Services
 
             return jElements?.ToObject<NodoOverpass[]>() ?? Array.Empty<NodoOverpass>();
         }
+
     }
 }
