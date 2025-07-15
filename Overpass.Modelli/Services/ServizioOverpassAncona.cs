@@ -27,6 +27,14 @@ namespace Overpass.Modelli.Services
             return ElencoNodiAncona;
         }
 
+        public static async Task<NodoOverpass[]> FiltraNodiAnconaOverpass(string filter)
+        {
+
+            NodoOverpass[] ElencoNodiAncona = await DaiElencoNodiAnconaOverpass();
+
+            return ElencoNodiAncona.Where(n => n.tags.amenity == filter || n.tags.tourism == filter || n.tags.leisure == filter).ToArray();
+        }
+
 
         public static async Task<StradaOverpass[]> DaiElencoStradeAnconaOverpass()
         {

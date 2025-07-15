@@ -15,5 +15,14 @@ namespace OverpassAPI.Controllers
             vm.ElencoNodi = ElencoNodi;
             return View(vm);
         }
+
+        [HttpGet]
+        public IActionResult FiltraNodi(string filter)
+        {
+            NodiOverpassFiltraNodiViewModel vm = new();
+            NodoOverpass[] ElencoFiltrato = ServizioOverpassAncona.FiltraNodiAnconaOverpass(filter).Result;
+            vm.ElencoFiltrato = ElencoFiltrato;
+            return View(vm);
+        }
     }
 }

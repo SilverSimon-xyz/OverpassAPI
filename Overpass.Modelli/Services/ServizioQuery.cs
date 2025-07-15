@@ -23,19 +23,6 @@ namespace Overpass.Modelli.Services
             
         }
 
-        public static string QueryFiltraNodiAncona(string filter)
-        {
-            return """
-                [out:json][timeout:25];
-                area["name"="Ancona"]["admin_level"="6"]->.a;
-                (
-                    node[{filter}](area.a);
-                );
-                out;
-                """;
-
-        }
-
         public static string QueryStradeAncona()
         {
             return """
