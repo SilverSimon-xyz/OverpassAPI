@@ -1,0 +1,47 @@
+﻿@using Overpass.Modelli.Models
+@using OverpassAPI.ViewModels
+@model StradeOverpassElencoStradeViewModel
+
+@{
+	Layout = null;
+}
+<html>
+<head>
+	<title>Elenco Strade Ancona</title>
+</head>
+
+<body>
+	<h1>Pagina di Elenco Strade Ancona</h1>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Tipo</th>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Tipo Strada</th>
+				<th>Massima Velocità</th>
+				<th>Accesso</th>
+				<th>Percorso Ciclabile</th>
+				<th>Percorso Pedonale</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var strada in Model.ElencoStrade.Where(s => s.tags != null))
+			{
+				<tr>
+					<td>@strada.type</td>
+					<th>@strada.id</th>
+					<td>@strada.tags.name</td>
+					<td>@strada.tags.highway</td>
+					<td>@strada.tags.maxspeed</td>
+					<td>@strada.tags.access</td>
+					<td>@strada.tags.bicycle</td>
+					<td>@strada.tags.foot</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</body>
+</html>
+
+

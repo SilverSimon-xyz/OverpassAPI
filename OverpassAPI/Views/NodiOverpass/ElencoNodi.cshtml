@@ -1,4 +1,5 @@
-﻿@using OverpassAPI.ViewModels
+﻿@using Overpass.Modelli.Models
+@using OverpassAPI.ViewModels
 @model NodiOverpassElencoNodiViewModel
 
 @{
@@ -15,10 +16,11 @@
 		<thead>
 			<tr>
 				<th>Tipo</th>
-				<th>Id</th>
+				<th>ID</th>
 				<th>Lat, Lon</th>
-				<th>Nome</th>
-				<th>Servizio</th>
+				<th>Nome/Nome Locale</th>
+				<th>Indirizzo</th>
+				<th>Tipo Nodo</th>
 				<th>Numero di Telefono</th>
 				<th>Sito Web</th>
 				<th>Orari di Apertura</th>
@@ -32,12 +34,25 @@
 					<td>@nodo.type</td>
 					<td>@nodo.id</td>
 					<td>@nodo.lat , @nodo.lon</td>
-					<td>@nodo.tags.name</td>
-					<td>@nodo.tags.amenity</td>
+					<td>@nodo.tags.name </td>
+					<td>@nodo.tags.street, @nodo.tags.housenumber, @nodo.tags.city, @nodo.tags.postcode</td>
+					@if(@nodo.tags.amenity != null)
+					{
+						<td>@nodo.tags.amenity</td>
+					} 
+					else if(@nodo.tags.tourism != null) 
+					{
+						<td>@nodo.tags.tourism</td>
+					}
+					else if(@nodo.tags.leisure != null)
+					{
+						<td>@nodo.tags.leisure</td>
+					}
 					<td>@nodo.tags.phone</td>
 					<td>@nodo.tags.website</td>
 					<td>@nodo.tags.opening_hours</td>
 					<td>@nodo.tags.wheelchair</td>
+
 				</tr>
 			}
 		</tbody>

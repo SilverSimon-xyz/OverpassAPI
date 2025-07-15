@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -12,22 +13,35 @@ namespace Overpass.Modelli.Services
 {
     public static class ServizioOverpassAncona
     {
+        private static string BaseUri = "https://overpass-api.de/api/interpreter";
 
         public static async Task<NodoOverpass[]> DaiElencoNodiAnconaOverpass()
         {
-            string BaseUri = "https://overpass-api.de/api/interpreter";
-            var query = """
-                [out:json][timeout:25];
-                area["name"="Ancona"]["admin_level"="6"]->.a;
-                (
-                    node["amenity"="restaurant"](area.a);
-                    node["tourism"="museum"](area.a);
-                    node["amenity"="bank"](area.a);
-                    node["leisure"="park"](area.a);
-                    node["amenity"="school"](area.a);
-                );
-                out;
-                """;
+            
+            var query = ServizioQuery.QueryNodiAncona();
+
+            var json = EseguiRichiesta(query);
+
+            NodoOverpass[] ElencoNodiAncona = EstraiElementsDalJSON<NodoOverpass>(await json);
+
+            return ElencoNodiAncona;
+        }
+
+
+        public static async Task<StradaOverpass[]> DaiElencoStradeAnconaOverpass()
+        {
+            
+            var query = ServizioQuery.QueryStradeAncona();
+
+            var json = EseguiRichiesta(query);
+
+            StradaOverpass[] ElencoStradeAncona = EstraiElementsDalJSON<StradaOverpass>(await json);
+
+            return ElencoStradeAncona;
+        }
+
+        private static async Task<string> EseguiRichiesta(string query)
+        {
             var httpClient = new HttpClient();
 
             var request = "data=" + Uri.EscapeDataString(query);
@@ -35,20 +49,15 @@ namespace Overpass.Modelli.Services
 
             var response = await httpClient.PostAsync(BaseUri, contents);
 
-            var json = await response.Content.ReadAsStringAsync();
-
-            NodoOverpass[] ElencoNodiAncona = EstraiElementsDalJSON(json);
-
-            return ElencoNodiAncona;
+            return await response.Content.ReadAsStringAsync();
         }
 
-        private static NodoOverpass[] EstraiElementsDalJSON(string json)
+        private static T[] EstraiElementsDalJSON<T>(string json)
         {
             var jObject = JObject.Parse(json);
             var jElements = jObject["elements"];
 
-            return jElements?.ToObject<NodoOverpass[]>() ?? Array.Empty<NodoOverpass>();
+            return jElements?.ToObject<T[]>() ?? Array.Empty<T>();
         }
-
     }
 }
