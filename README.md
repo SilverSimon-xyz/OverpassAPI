@@ -24,7 +24,8 @@ Obiettivi:
     2. Creare un filtro nella pagina dell'Elenco dei Punti di Interesse per ottenerne di un determinato tipo; (NodiOverpass/FiltroNodi?filter=...)
     3. Creare una pagina per mostrare Strade della Provincia di Ancona; (StradeOverpass/ElencoStrade)
 
-I principali tag utilizzati per l'ottenimento dei Nodi sono: amenity, leisure e tourism. Di seguito l'elenco dei principali tag e sottotag che non sono stati trattati ma possono essere aggiunti in seguito:
+I principali tag utilizzati per l'ottenimento dei Nodi sono: amenity, leisure e tourism. 
+Di seguito sono presenti i tag e i sottotag utilizzati su Overpass e benché ne siano stati usati 3, è possibile aggiungerli in un secondo momento:
     
     • highway=* - Infrastrutture stradali:
         ◦ motorway, primary, residential, footway, cycleway
