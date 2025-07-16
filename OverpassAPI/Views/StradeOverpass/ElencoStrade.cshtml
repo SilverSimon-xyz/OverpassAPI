@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<h1>Pagina di Elenco Strade Ancona</h1>
+	<h1>Pagina Elenco Strade Ancona</h1>
 	<table border="1">
 		<thead>
 			<tr>
@@ -20,9 +20,16 @@
 				<th>Nome</th>
 				<th>Tipo Strada</th>
 				<th>Massima Velocità</th>
+				<th>Incrocio-Svincolo</th>
+				<th>Illuminazione</th>
+				<th>Corsia</th>
 				<th>Accesso</th>
 				<th>Percorso Ciclabile</th>
 				<th>Percorso Pedonale</th>
+				<th>Destinazione</th>
+				<th>Accessibilità</th>
+				<th>Nodi Associati</th>
+				<th>Altre Informazioni</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,9 +41,21 @@
 					<td>@strada.tags.name</td>
 					<td>@strada.tags.highway</td>
 					<td>@strada.tags.maxspeed</td>
+					<td>@strada.tags.junction</td>
+					<td>@strada.tags.lit</td>
+					<td>@strada.tags.lanes</td>
 					<td>@strada.tags.access</td>
 					<td>@strada.tags.bicycle</td>
 					<td>@strada.tags.foot</td>
+					<td>@strada.tags.destination</td>
+					<td>@strada.tags.wheelchair</td>
+					<td>
+					@foreach (var nodo in strada.nodes)
+					{
+						<p>[@nodo.ToString()]</p>
+					}
+					</td>
+					<td>@strada.tags.tourism @strada.tags.leisure @strada.tags.historic @strada.tags.sport @strada.tags.building</td>
 				</tr>
 			}
 		</tbody>

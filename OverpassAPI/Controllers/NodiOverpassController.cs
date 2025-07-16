@@ -10,19 +10,41 @@ namespace OverpassAPI.Controllers
         [HttpGet]
         public IActionResult ElencoNodi()
         {
-            NodiOverpassElencoNodiViewModel vm = new();
+            
             NodoOverpass[] ElencoNodi = ServizioOverpassAncona.DaiElencoNodiAnconaOverpass().Result;
-            vm.ElencoNodi = ElencoNodi;
+            var tipi = ServizioOverpassAncona.DaiElencoNodiAnconaOverpass().Result
+                .SelectMany(n => new[] { n.tags.amenity, n.tags.tourism, n.tags.leisure })
+                .Where(t => !string.IsNullOrEmpty(t))
+                .Distinct()
+                .OrderBy(t => t)
+                .ToList();
+            NodiOverpassElencoNodiViewModel vm = new()
+            {
+                ElencoNodi = ElencoNodi,
+                TipiDisponibili = tipi
+            };
+            
             return View(vm);
         }
 
         [HttpGet]
         public IActionResult FiltraNodi(string filter)
         {
-            NodiOverpassFiltraNodiViewModel vm = new();
             NodoOverpass[] ElencoFiltrato = ServizioOverpassAncona.FiltraNodiAnconaOverpass(filter).Result;
-            vm.ElencoFiltrato = ElencoFiltrato;
-            return View(vm);
+            var tipi = ServizioOverpassAncona.DaiElencoNodiAnconaOverpass().Result
+                .SelectMany(n => new[] { n.tags.amenity, n.tags.tourism, n.tags.leisure })
+                .Where(t => !string.IsNullOrEmpty(t))
+                .Distinct()
+                .OrderBy(t => t)
+                .ToList();
+            NodiOverpassElencoNodiViewModel vm = new()
+            {
+                ElencoNodi = ElencoFiltrato,
+                TipiDisponibili = tipi,
+                filter = filter
+            };
+            
+            return View("ElencoNodi", vm);
         }
     }
 }

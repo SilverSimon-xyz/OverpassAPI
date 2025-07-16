@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Overpass.Modelli.Services
 {
-    public static class ServizioQuery
+    public static class QueryAncona
     {
         public static string QueryNodiAncona()
         {

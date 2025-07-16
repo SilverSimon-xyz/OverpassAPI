@@ -18,7 +18,7 @@ namespace Overpass.Modelli.Services
         public static async Task<NodoOverpass[]> DaiElencoNodiAnconaOverpass()
         {
             
-            var query = ServizioQuery.QueryNodiAncona();
+            var query = QueryAncona.QueryNodiAncona();
 
             var json = EseguiRichiesta(query);
 
@@ -39,7 +39,7 @@ namespace Overpass.Modelli.Services
         public static async Task<StradaOverpass[]> DaiElencoStradeAnconaOverpass()
         {
             
-            var query = ServizioQuery.QueryStradeAncona();
+            var query = QueryAncona.QueryStradeAncona();
 
             var json = EseguiRichiesta(query);
 

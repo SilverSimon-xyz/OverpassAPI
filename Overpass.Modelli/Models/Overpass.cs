@@ -47,7 +47,6 @@ namespace Overpass.Modelli.Models
         public string sport { get; set; }
         public string access { get; set; }
         public string email { get; set; }
-        public string location { get; set; }
     }
 
     public class WayTags
