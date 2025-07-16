@@ -4,8 +4,11 @@ Progetto realizzato per l'esame di Applicazioni Web- Modulo Cloud aa 2024-2025
 
 Lo scopo del progetto è un'applicazione web in grado di ottenere i Punti di Interesse e le Strade della provincia di Ancona da OpenStreetMap tramite Overpass API.
 Overpass API è uno strumento che viene impiegato per interrogare i dati da OpenStreetMap, dove è possibile eseguire richieste tramite query che contengano nodi, strade, relazioni.
+
 Documentazione Overpass API: https://overpass-api.de/
+
 Overpass Turbo è un tool per eseguire le richieste tramite query per ottenere dati in formato JSON e visualizzarli su una mappa. Utile per eseguire test delle query: https://overpass-turbo.eu/
+
 I dati verranno mostrati in una pagina HTML.
 
 Le query utilizzate sono le seguenti:
