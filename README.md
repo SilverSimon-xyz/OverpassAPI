@@ -12,10 +12,12 @@ Overpass Turbo è un tool per eseguire le richieste tramite query per ottenere d
 I dati verranno mostrati in una pagina HTML.
 
 Le query utilizzate sono le seguenti:
+
 Nodi: overpass-api.de/api/interpreter?data=[out:json][timeout:25];area["name"="Ancona"]["admin_level"="6"]->.a;(node["amenity"](area.a);node["tourism"](area.a);node["leisure"](area.a););out;
+
 Strade: overpass-api.de/api/interpreter?data=[out:json][timeout:25];area["name"="Ancona"]["admin_level"="6"]->.a;(way(area.a););out body 200;>;out skel qt 10;
 
-Nota: i numeri presenti nella query delle strade su out body 200 e out skel 10, sono stati necessari poiché OverpassAPI è un po' lento e non riesce a gestire una mole enorme di dati. out body 200 implica che si otterranno le prime 200 strade che Overpass trova, invece out skel qt 10 fa riferimento a 10 nodi associati alle strade.
+NOTA: i numeri presenti nella query delle strade su out body 200 e out skel 10, sono stati necessari poiché OverpassAPI è un po' lento e non riesce a gestire una mole enorme di dati. out body 200 implica che si otterranno le prime 200 strade che Overpass trova, invece out skel qt 10 fa riferimento a 10 nodi associati alle strade.
 
 Obiettivi:
     1. Creare una pagina che mostra una tabella dei Punti di Interesse della Provincia di Ancona; (NodiOverpass/ElencoNodi)
@@ -49,19 +51,10 @@ I principali tag utilizzati per l'ottenimento dei Nodi sono: amenity, leisure e 
     • leisure=* — Tempo libero
         ◦ park, pitch, playground, sports_centre, swimming_pool
 
+
 Tecnologie utilizzate:
     • Overpass API;
     • .NET Core 8.0;
     • ASP.NET MVC;
     • Architettura REST;
     • Docker;
-
-Il progetto è diviso in questi pacchetti:
-    • Overpass.Modello 
-        ◦ Services;
-        ◦ Models;
-    • OverpassApplicationMVC, composto da:
-        ◦ Controller;
-        ◦ View;
-        ◦ ViewModel;    
-
