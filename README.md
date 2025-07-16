@@ -24,30 +24,40 @@ Obiettivi:
     2. Creare un filtro nella pagina dell'Elenco dei Punti di Interesse per ottenerne di un determinato tipo; (NodiOverpass/FiltroNodi?filter=...)
     3. Creare una pagina per mostrare Strade della Provincia di Ancona; (StradeOverpass/ElencoStrade)
 
-I principali tag utilizzati per l'ottenimento dei Nodi sono: amenity, leisure e tourism. Di seguito l'elenco dei principali tag e sottotag:
+I principali tag utilizzati per l'ottenimento dei Nodi sono: amenity, leisure e tourism. Di seguito l'elenco dei principali tag e sottotag che non sono stati trattati ma possono essere aggiunti in seguito:
+    
     • highway=* - Infrastrutture stradali:
         ◦ motorway, primary, residential, footway, cycleway
         ◦ Sottotag: sidewalk=, cycleway=, maxspeed=, lanes=,
+    
     • building=* — Tipi di edifici
         ◦ house, school, church, commercial, garage
         ◦ Sottotag: building:levels=, roof:shape=, entrance=
+    
     • landuse=* — Uso del suolo
         ◦ residential, commercial, forest, farmland, grass
+    
     • natural=* — Elementi naturali
         ◦ tree, water, peak, beach, cliff
         ◦ Sottotag: natural=tree con species=*, height=*
+    
     • shop=* — Attività commerciali
         ◦ supermarket, bakery, clothes, electronics, florist
+    
     • amenity=* — Servizi pubblici e privati
         ◦ school, hospital, restaurant, parking
         ◦ Sottotag: cuisine=*, diet=*, capacity=*, opening_hours=*
+    
     • railway=* — Infrastrutture ferroviarie
         ◦ station, halt, level_crossing, rail, subway_entrance
+    
     • public_transport=* — Trasporto pubblico
         ◦ stop_position, platform, station
         ◦ Sottotag: bus=yes, train=yes, route_ref=*
+    
     • place=* — Località geografiche
         ◦ city, town, village, hamlet, suburb
+    
     • leisure=* — Tempo libero
         ◦ park, pitch, playground, sports_centre, swimming_pool
 
