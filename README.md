@@ -2,7 +2,7 @@
 
 Progetto realizzato per l'esame di Applicazioni Web- Modulo Cloud aa 2024-2025
 
-Lo scopo del progetto è un'applicazione web in grado di ottenere i Punti di Interesse e le Strade della provincia di Ancona da OpenStreetMap tramite Overpass API.
+Lo scopo del progetto è un'applicazione web ASP.NET MVC REST in grado di ottenere i Punti di Interesse e le Strade della provincia di Ancona da OpenStreetMap tramite Overpass API.
 Overpass API è uno strumento che viene impiegato per interrogare i dati da OpenStreetMap, dove è possibile eseguire richieste tramite query che contengano nodi, strade, relazioni.
 
 Documentazione Overpass API: https://overpass-api.de/
